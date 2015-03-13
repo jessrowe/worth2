@@ -5,7 +5,8 @@ from factory.fuzzy import FuzzyText
 
 from worth2.main.auth import generate_password
 from worth2.main.models import (
-    Avatar, Location, Participant, Session, VideoBlock, WatchedVideo
+    Avatar, Location, Participant, PauseInterval, Session, VideoBlock,
+    WatchedVideo
 )
 
 
@@ -48,6 +49,13 @@ class ParticipantFactory(factory.django.DjangoModelFactory):
     location = factory.SubFactory(LocationFactory)
     study_id = FuzzyText(length=12, chars='1234567890')
     is_archived = False
+
+
+class PauseIntervalFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = PauseInterval
+
+    user = factory.SubFactory(InactiveUserFactory)
 
 
 class SessionFactory(factory.django.DjangoModelFactory):

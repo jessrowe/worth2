@@ -52,6 +52,12 @@ class ParticipantViewSet(viewsets.ModelViewSet):
     serializer_class = ParticipantSerializer
 
 
+class PauseIntervalViewSet(viewsets.ModelViewSet):
+    """A View for the user to record BreakModalTimes."""
+    queryset = PauseInterval.objects.all()
+    serializer_class = PauseIntervalSerializer
+
+
 class WatchedVideoViewSet(viewsets.ModelViewSet):
     serializer_class = WatchedVideoSerializer
     authentication_classes = (AnySessionAuthentication,)

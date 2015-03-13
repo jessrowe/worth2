@@ -2,7 +2,7 @@ from django.core.urlresolvers import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from worth2.main.models import Participant, WatchedVideo
+from worth2.main.models import Participant, PauseInterval, WatchedVideo
 from worth2.main.tests.factories import (
     ParticipantFactory, WatchedVideoFactory, UserFactory, VideoBlockFactory
 )
@@ -151,6 +151,14 @@ class ParticipantViewSetUnAuthedTest(APITestCase):
 
         with self.assertRaises(Participant.DoesNotExist):
             Participant.objects.get(study_id='123456789012')
+
+
+class PauseIntervalTest(LoggedInParticipantTestMixin, APITestCase):
+    def test_create(self):
+        pass
+
+    def test_update(self):
+        pass
 
 
 class WatchedVideoViewSetUnAuthedTest(APITestCase):

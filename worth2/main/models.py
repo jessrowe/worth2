@@ -7,6 +7,7 @@ from django.db import models
 from django.shortcuts import get_object_or_404
 from ordered_model.models import OrderedModel
 from pagetree.generic.models import BasePageBlock
+from pagetree.models import Section
 
 from worth2.main.auth import user_is_participant
 from worth2.main.generic.models import BaseUserProfile
@@ -242,6 +243,15 @@ class Participant(InactiveUserProfile):
             return 5
 
         return None
+
+
+class PauseInterval(models.Model):
+    """A model for keeping track of when the intervention is paused."""
+
+    user = models.ForeignKey(User)
+    section = models.ForeignKey(Section)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Session(models.Model):

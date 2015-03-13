@@ -5,8 +5,8 @@ from pagetree.models import Hierarchy
 
 from worth2.main.models import Participant
 from worth2.main.tests.factories import (
-    AvatarFactory, LocationFactory, ParticipantFactory, SessionFactory,
-    VideoBlockFactory, WatchedVideoFactory
+    AvatarFactory, LocationFactory, ParticipantFactory, PauseIntervalFactory,
+    SessionFactory, VideoBlockFactory, WatchedVideoFactory
 )
 
 
@@ -96,6 +96,14 @@ class ParticipantManagerTest(TestCase):
             Participant.objects.cohort_ids(),
             ['111', '222', '333']
         )
+
+
+class PauseIntervalTest(TestCase):
+    def setUp(self):
+        self.pause_interval = PauseIntervalFactory()
+
+    def test_is_valid_from_factory(self):
+        self.pause_interval.full_clean()
 
 
 class SessionTest(TestCase):

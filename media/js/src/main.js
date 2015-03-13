@@ -24,6 +24,7 @@ require.config({
         }
     },
     paths: {
+        bootstrap: '//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min',
         jquery: '../lib/jquery',
         'jquery-cookie': '../lib/jquery.cookie',
         underscore: '../lib/underscore',

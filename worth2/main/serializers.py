@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from worth2.main.auth import generate_random_username, generate_password
-from worth2.main.models import Participant, WatchedVideo
+from worth2.main.models import Participant, PauseInterval, WatchedVideo
 
 
 class ParticipantSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,6 +22,12 @@ class ParticipantSerializer(serializers.HyperlinkedModelSerializer):
         validated_data['created_by'] = self.context['request'].user
 
         return Participant.objects.create(**validated_data)
+
+
+class PauseIntervalSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = PauseInterval
+        fields = ('pk', 'user', 'section', 'created_at', 'updated_at')
 
 
 class WatchedVideoSerializer(serializers.ModelSerializer):
