@@ -25,6 +25,7 @@ TEMPLATE_DEBUG = True
 STAGING_ENV = True
 
 AWS_S3_CUSTOM_DOMAIN = 'd1t432giinsu9y.cloudfront.net'
+CORS_ORIGIN_WHITELIST = (AWS_S3_CUSTOM_DOMAIN,)
 AWS_STORAGE_BUCKET_NAME = "ccnmtl-worth2-static-stage"
 AWS_PRELOAD_METADATA = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

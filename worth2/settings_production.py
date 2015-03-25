@@ -23,6 +23,7 @@ DATABASES = {
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 AWS_S3_CUSTOM_DOMAIN = 'd1tpq2w6jljbie.cloudfront.net'
+CORS_ORIGIN_WHITELIST = (AWS_S3_CUSTOM_DOMAIN,)
 AWS_STORAGE_BUCKET_NAME = "ccnmtl-worth2-static-prod"
 AWS_PRELOAD_METADATA = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
